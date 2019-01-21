@@ -1,0 +1,205 @@
+/*References used:
+“Using d3-tip to add tooltips to a d3 bar chart”. Justin Palmer. http://bl.ocks.org/Caged/6476579.
+"Simple Sankey Graph." D3 Tips & Tricks: Interactive Data Visualization in a Web Browser, by Malcolm Maclean, Lean Publishing, 2014. https://leanpub.com/D3-Tips-and-Tricks/read#leanpub-auto-simple-sankey-graph.
+"Collapsible Sankey Diagram Aligned Left (Sample 2)." AJ Mengistu. https://bl.ocks.org/AJ-Mengistu/e853a59e855a65fbc5ff76df2e14ed6d.
+*/
+
+.card-text {
+    font-size: 12px;
+}
+
+ul.list-inline{display:block;}
+li.list-inline-item {
+    display:inline;
+    margin: 0em;
+}
+li.list-inline-item:before {content:'•  ';}
+li.list-inline-item:first-child:before {content:'';}
+
+/* SANKEY */
+.node rect {
+	cursor: pointer;
+	shape-rendering: crispEdges;
+}
+
+.node text {
+	pointer-events: none;
+	font: 11px sans-serif;
+}
+
+.link {
+	fill: none;
+	stroke: #000;
+	stroke-opacity: .2;
+}
+
+.link:hover {
+	stroke-opacity: .4;
+}
+
+
+/* EARNINGS HISTOGRAMS / LINE */
+
+.area {
+    opacity: 0.3;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+ 
+.axis {
+    font-size: 10px;
+}
+
+#buttons {
+    position: relative;
+    left: 10px;
+}
+
+.button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
+    background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+    background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+    background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+    background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+    background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
+    background-color:#f9f9f9;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-size:10px;
+    font-weight:bold;
+    padding:2px 4px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+
+.button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
+    background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
+    background-color:#e9e9e9;
+}   
+
+.button:active {
+    position:relative;
+    top:1px;
+}
+
+.dot {
+    fill: none;
+    stroke: grey;
+}
+
+.d3-tip,
+.tooltip {
+    line-height: 12px;
+    font-size: 10px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after,
+.tooltip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 12px;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after,
+.tooltip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.focus circle {
+    fill: steelblue;
+    stroke: steelblue;
+    opacity: 0.5;
+}
+
+.focus text {
+    font-size: 12px;
+}
+
+.line { 
+    stroke-width: 2;
+    fill: none;
+    opacity: 0.75;
+}
+
+.linechart_legend {
+    font-size: 10px;
+}
+
+.no_data_text,
+.no_data_linechart_text {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: start;
+}
+
+.no_data_rect,
+.no_data_linechart_rect {
+    opacity: 0.75;
+    fill: lightblue;
+}
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+.subtitle {
+    font-size: 11px;
+    text-anchor: start;
+}
+
+/* Choropleth */
+.states {
+    fill: none;
+    /*stroke: #fff;
+    stroke-width: .5px;
+    stroke-linejoin: round;*/
+    stroke-width: .5px;
+    stroke: #777;
+    stroke-dasharray: 1,3;
+    stroke-linejoin: round;
+}
+
+.legend {
+    font-size: 14px;
+}
+
+/* Survey Timer */
+#timer {
+    margin-left: 250px;
+}

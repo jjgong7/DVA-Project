@@ -1,0 +1,13 @@
+*.ipynb linguist-language=Python
+*.sql linguist-detectable=true
+
+# Vendored code
+src/app/static/d3.v3.min.js linguist-vendored
+src/app/static/d3-queue.v3.min.js linguist-vendored
+src/app/static/d3.tip.v0.6.3.js linguist-vendored
+src/app/static/topojson.v1.min.js linguist-vendored
+src/app/static/bootstrap.min.css linguist-vendored
+src/app/static/bootstrap.min.js linguist-vendored
+src/app/static/jquery-3.2.1.slim.min.js linguist-vendored
+src/app/static/popper.min.js linguist-vendored
+

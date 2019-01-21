@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MORE app!</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+	  		<img src="{{ url_for('static', filename='logo.png') }}" style="height:30px;" />
+		 </a>
+		 <span id="timer">
+			 </span>
+		<!--<div class="">
+	    	<ul class="navbar-nav mr-auto">
+	    	<li class="nav-item active">
+				<a class="nav-link" href="#">Explore</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Compare</a>
+	    	</li>
+	  		</ul>
+		</div>
+		-->
+    </nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm"></div>
+			<div class="col-md center">
+				
+			</div>
+			<div class="col-sm"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<h2>College Major</h2>
+				<div class="form-group">
+					<select class="form-control" id="majorsSelect" multiple="multiple">
+					</select><a href="#" onclick="clearMajors(); return false;"> clear </a>
+				</div>
+				<div id="similarMajors" class="card">
+				  <div class="card-body">
+				    <h6 class="card-title">Similar Majors</h6>
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-4 text-center">
+				<div id="sankey" class="center">
+					<div id="sankeyChart" style="overflow: auto;">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<h2>Career</h2>
+				<div class="form-group">
+					<select id="careersSelect" multiple=multiple>
+					</select><a href="#" onclick="clearCareers(); return false;"> clear </a>
+				</div>
+				
+				<div class="card">
+				  <div class="card-body">
+				    <h6 class="card-title">Earnings range for selected careers</h6>
+				    <div id="careerEarnings">
+				    	Select a career to see earnings.
+				    </div>
+				    <div id="earnAgeButtons">
+				    	<span>Age:</span>
+					    <button type="button" class="button" id="button1")">25-34</button>
+						<button type="button" class="button" id="button2")">35-44</button>
+						<button type="button" class="button" id="button3")">45-54</button>
+						<button type="button" class="button" id="button4")">55-64</button>
+						<button type="button" class="button" id="button5")">65+</button>
+						<button type="button" class="button" id="button6")">All</button>
+					</div>
+				  </div>
+				</div>
+				<div id="earnLine"></div>
+				<div  id="similarCareers" class="card">
+				  <div class="card-body">
+				    <h6 class="card-title">Similar Careers</h6>
+				    <p class="card-text"></p>
+				    
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div id="mapRow" class="row">
+			<div class="col center text-center">
+			<h2>Median Earnings, Adjusted for Cost of Living</h2>
+			<p>Select one or more occupations to show the map. Median earnings for all occupations selected above are shown on the map, adjusted for the state's cost-of-living index.</p>
+		</div>
+		</div>
+		<div class="row text-center center">
+			<div id = "coli_map" style="margin:auto; display: inline-block;"></div>
+	 	</div>
+		<script type = "text/javascript">
+		    function valueChanged()
+		    {
+		      if($('.map_checkbox').is(":checked"))
+		          $("#coli_map").show();
+		      else
+		          $("#coli_map").hide();
+		    }
+		</script>
+	</div>
+
+    <!-- Javascript -->
+
+    <!-- Bootstrap & jQuery -->
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-3.2.1.slim.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <!-- select2 autocomplete component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <!-- D3 and plugins -->
+    <script type="text/javascript" src="{{ url_for('static', filename='d3.v3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='d3-queue.v3.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='d3.tip.v0.6.3.js') }}"></script>
+    
+    <!-- Choropleth Map Stuff -->
+    <script type="text/javascript" src="{{ url_for('static', filename='topojson.v1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='sankey.js') }}"></script>
+    
+    <!-- M.O.R.E. app-specific -->
+    <script type="text/javascript" src="{{ url_for('static', filename='moreSankey.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='colimap.js') }}"></script>
+    
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='earnHistogram.js') }}"></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='earnLine.js') }}"></script>
+	
+	<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+
+
+	</script>
+</body>
+</html>
+
+
