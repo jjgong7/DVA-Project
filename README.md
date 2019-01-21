@@ -23,7 +23,7 @@ Our project is an interactive interface for exploring the connection between col
 
 Based on a large representative sample (millions) of Americans, it shows what college majors led to what careers, and what the earnings of those careers are. It addition, it recommends similar majors to explore and shows state-specific earnings adjusted by cost of living.
 
-The frontend is uses jQuery, D3.js, and Bootstrap CSS. The backend is a Python Flask app with a SQLite3 database. A few Python and SQL scripts process the raw Census data into smaller yet flexible aggregated tables used by the app.
+The frontend uses jQuery, D3.js, and Bootstrap CSS. The backend is a Python Flask app with a SQLite3 database. A few Python and SQL scripts process the raw Census data into smaller yet flexible aggregated tables used by the app.
 
 **Please also check out the [project poster!](doc/Poster.pdf)**
 
