@@ -10,11 +10,11 @@ application = Flask(__name__)
 
 # configure app
 application.config.update(dict(
-    DATABASE=os.path.join(application.root_path, '..', 'data', 'processed', 'pums_complete.db')
+    DATABASE=os.path.join(application.root_path, '.', 'data', 'processed', 'pums_complete.db')
 ))
 application._static_folder = 'static'
 
-coli = pd.read_csv(os.path.join(application.root_path,'..','data','raw','coli.csv'))
+coli = pd.read_csv(os.path.join(application.root_path,'.','data','raw','coli.csv'))
 
 def get_db():
     """

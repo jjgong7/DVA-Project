@@ -1,6 +1,10 @@
 # Major, Occupation, Regional COLI & Earning
 ## An Application for Career Path Exploration
 
+Deployed project on AWS Elastic Beanstalk is available [here](http://more-project.us-east-1.elasticbeanstalk.com/).
+
+View this project on my website [here](https://www.gong-jj.com/more/). 
+
 **Team Members:**  
 Chang-Zhou Gong, David Sluder, Jared Miller, Keyi Gimpel, Margarita Kalacheva, Reese Hopkins
 
